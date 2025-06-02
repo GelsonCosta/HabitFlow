@@ -14,4 +14,8 @@
     <PackageReference Include="Sqids" Version="3.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HabitFlow.Domain\HabitFlow.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

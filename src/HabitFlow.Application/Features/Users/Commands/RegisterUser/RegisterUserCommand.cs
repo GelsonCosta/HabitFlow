@@ -5,12 +5,7 @@ using MediatR;
 
 namespace HabitFlow.Application.Features.Users.Commands.RegisterUser;
 
-    public class RegisterUserCommand : IRequest<RegisteredUserDto>
+    public class RegisterUserCommand(RegisterUserDto userDto) : IRequest<RegisteredUserDto>
     {
-        public RegisterUserDto UserDto { get; }
-
-        public RegisterUserCommand(RegisterUserDto userDto)
-        {
-            UserDto = userDto;
-        }
-    }
+    public RegisterUserDto UserDto { get; } = userDto;
+}
