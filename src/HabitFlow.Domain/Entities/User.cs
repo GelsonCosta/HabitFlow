@@ -9,7 +9,7 @@ public class User : BaseEntity
     public string PasswordHash { get; private set; }
     public DateTime RegistrationDate { get; private set; }
 
-    
+
     private User() { }
 
     public User(string name, string email, string passwordHash)
@@ -19,6 +19,8 @@ public class User : BaseEntity
         PasswordHash = passwordHash ?? throw new ArgumentNullException(nameof(passwordHash));
         RegistrationDate = DateTime.UtcNow;
     }
+
+
 
 
 }

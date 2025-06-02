@@ -1,3 +1,5 @@
+using HabitFlow.Application.Features.Users.Commands.LoginUser;
+using HabitFlow.Application.Features.Users.Commands.LoginUser.Dtos;
 using HabitFlow.Application.Features.Users.Commands.RegisterUser;
 using HabitFlow.Application.Features.Users.Commands.RegisterUser.Dtos;
 using MediatR;
@@ -24,6 +26,14 @@ namespace HabitFlow.Api.Controllers
             var result = await _mediator.Send(command);
 
             return CreatedAtAction(nameof(Register), result);
+        }
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginUserDto loginUserDto)
+        {
+            var command = new LoginUserCommand(loginUserDto);
+            var result = await _mediator.Send(command);
+
+            return Ok(result);
         }
     }
 }
