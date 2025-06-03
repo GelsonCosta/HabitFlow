@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Categories\" />
+    <Folder Include="Features\Categories\Commands\" />
+    <Folder Include="Features\Categories\Commands\CreateCategory\" />
+    <Folder Include="Features\Categories\Commands\CreateCategory\Dtos\" />
     <Folder Include="Features\Habits\Queries\GetUserHabits\Dtos\" />
   </ItemGroup>
 
