@@ -25,7 +25,8 @@ public static class InfrastructureServiceExtensions
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<ITokenService, JwtTokenService>();
-
+        services.AddScoped<IHabitRepository, HabitRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
         // Configuração JWT
         services.Configure<JwtSettings>(configuration.GetSection("Jwt"));
         return services;
