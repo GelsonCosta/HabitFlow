@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitFlow.Domain", "src\Hab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitFlow.Infrastructure", "src\HabitFlow.Infrastructure\HabitFlow.Infrastructure.csproj", "{17D2C7A6-6E45-4456-8575-8ACDCD4CED39}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05-4346-4AA6-1389-037BE0695223}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitFlow.UnitTests", "tests\HabitFlow.UnitTests\HabitFlow.UnitTests.csproj", "{BACA0600-E08C-47EE-A453-9AC3A7C30522}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitFlow.IntegrationTests", "tests\HabitFlow.IntegrationTests\HabitFlow.IntegrationTests.csproj", "{0BF10FAA-07FA-49C1-8DCA-9C468C01954A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +41,14 @@ Global
 		{17D2C7A6-6E45-4456-8575-8ACDCD4CED39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17D2C7A6-6E45-4456-8575-8ACDCD4CED39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17D2C7A6-6E45-4456-8575-8ACDCD4CED39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BACA0600-E08C-47EE-A453-9AC3A7C30522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BACA0600-E08C-47EE-A453-9AC3A7C30522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BACA0600-E08C-47EE-A453-9AC3A7C30522}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BACA0600-E08C-47EE-A453-9AC3A7C30522}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BF10FAA-07FA-49C1-8DCA-9C468C01954A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BF10FAA-07FA-49C1-8DCA-9C468C01954A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BF10FAA-07FA-49C1-8DCA-9C468C01954A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BF10FAA-07FA-49C1-8DCA-9C468C01954A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +58,7 @@ Global
 		{7BB81E0C-1E24-42ED-BBA2-C367D4F7F125} = {D4853E57-374B-44E1-A525-4A3CBAA54793}
 		{B736E39B-23E7-4E3B-A8C2-54FBEE6DE631} = {D4853E57-374B-44E1-A525-4A3CBAA54793}
 		{17D2C7A6-6E45-4456-8575-8ACDCD4CED39} = {D4853E57-374B-44E1-A525-4A3CBAA54793}
+		{BACA0600-E08C-47EE-A453-9AC3A7C30522} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
+		{0BF10FAA-07FA-49C1-8DCA-9C468C01954A} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 	EndGlobalSection
 EndGlobal
