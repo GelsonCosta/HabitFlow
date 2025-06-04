@@ -49,4 +49,9 @@ public class HabitRepository : IHabitRepository
     {
         return await _context.Habits.AnyAsync(h => h.Id == id);
     }
+    public async Task<bool> AnyByCategoryIdAsync(Guid categoryId)
+    {
+        return await _context.Habits
+            .AnyAsync(h => h.CategoryId == categoryId);
+    }
 }

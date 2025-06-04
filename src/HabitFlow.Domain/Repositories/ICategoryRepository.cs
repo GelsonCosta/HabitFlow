@@ -5,6 +5,10 @@ namespace HabitFlow.Domain.Repositories;
 
 public interface ICategoryRepository
 {
-    Task AddAsync(Category category);
-    Task<bool> ExistsAsync(Guid value, Guid userId);
+        Task<Category> GetByIdAsync(Guid id);
+        Task<IEnumerable<Category>> GetByUserIdAsync(Guid userId);
+        Task<bool> ExistsAsync(Guid id, Guid userId);
+        Task AddAsync(Category category);
+        Task UpdateAsync(Category category);
+        Task DeleteAsync(Category category);
 }

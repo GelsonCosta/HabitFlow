@@ -11,4 +11,5 @@ public interface IHabitRepository
     Task UpdateAsync(Habit habit);
     Task DeleteAsync(Habit habit);
     Task<bool> ExistsAsync(Guid id);
+    Task<bool> AnyByCategoryIdAsync(Guid categoryId);
 }
