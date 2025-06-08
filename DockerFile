@@ -1,0 +1,34 @@
+# Estágio de build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /app
+
+# Copia os arquivos de projeto e restaura as dependências
+COPY src/HabitFlow.Api/*.csproj src/HabitFlow.Api/
+COPY src/HabitFlow.Application/*.csproj src/HabitFlow.Application/
+COPY src/HabitFlow.Domain/*.csproj src/HabitFlow.Domain/
+COPY src/HabitFlow.Infrastructure/*.csproj src/HabitFlow.Infrastructure/
+COPY tests/HabitFlow.IntegrationTests/*.csproj tests/HabitFlow.IntegrationTests/
+COPY tests/HabitFlow.UnitTests/*.csproj tests/HabitFlow.UnitTests/
+COPY *.sln .
+RUN dotnet restore
+
+# Copia todo o código fonte
+COPY src/. src/
+
+# Compila a aplicação
+RUN dotnet publish src/HabitFlow.Api/HabitFlow.Api.csproj -c Release -o out
+
+# Estágio final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/out ./
+
+# Variáveis de ambiente para configuração
+ENV ASPNETCORE_URLS=http://+:80
+ENV ASPNETCORE_ENVIRONMENT=Production
+
+# Expõe a porta 80
+EXPOSE 80
+
+# Define o ponto de entrada da aplicação
+ENTRYPOINT ["dotnet", "HabitFlow.Api.dll"]

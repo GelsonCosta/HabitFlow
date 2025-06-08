@@ -27,6 +27,11 @@ namespace HabitFlow.Api.Controllers
 
             return CreatedAtAction(nameof(Register), result);
         }
+        [HttpPost("regi")]
+        public async Task<IActionResult> Regi()
+        {
+            return Ok("test");
+        }
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginUserDto loginUserDto)
         {

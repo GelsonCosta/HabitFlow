@@ -61,4 +61,9 @@ public class HabitRecordRepository : IHabitRecordRepository
         return await _context.HabitRecords
             .AnyAsync(r => r.HabitId == habitId && r.Date.Date == date.Date);
     }
+    public async Task DeleteAsync(HabitRecord record)
+    {
+        _context.HabitRecords.Remove(record);
+        await _context.SaveChangesAsync();
+    }
 }

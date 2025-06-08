@@ -1,6 +1,9 @@
 using System.Security.Claims;
 using HabitFlow.Application.Features.Habits.Commands;
 using HabitFlow.Application.Features.Habits.Commands.CreateHabit.Dtos;
+using HabitFlow.Application.Features.Habits.Commands.DeleteHabit;
+using HabitFlow.Application.Features.Habits.Commands.UpdateHabit;
+using HabitFlow.Application.Features.Habits.Commands.UpdateHabit.Dtos;
 using HabitFlow.Application.Features.Habits.Queries.GetUserHabits;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -40,5 +43,27 @@ namespace HabitFlow.Api.Controllers
 
             return Ok(result);
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateHabit(
+            Guid id,
+            [FromBody] UpdateHabitDto updateHabitDto)
+        {
+            var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var command = new UpdateHabitCommand(userId, id, updateHabitDto);
+            var result = await _mediator.Send(command);
+
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteHabit(Guid id)
+        {
+            var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var command = new DeleteHabitCommand(userId, id);
+            await _mediator.Send(command);
+
+            return NoContent();
+        }
+
     }
 }

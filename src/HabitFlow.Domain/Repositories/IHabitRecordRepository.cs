@@ -11,4 +11,5 @@ public interface IHabitRecordRepository
     Task AddAsync(HabitRecord record);
     Task UpdateAsync(HabitRecord record);
     Task<bool> ExistsAsync(Guid habitId, DateTime date);
+    Task DeleteAsync(HabitRecord record);
 }
