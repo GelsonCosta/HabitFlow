@@ -54,4 +54,10 @@ public class HabitRepository : IHabitRepository
         return await _context.Habits
             .AnyAsync(h => h.CategoryId == categoryId);
     }
+
+    public async Task<IEnumerable<Habit>> GetHabitsAsync()
+    {
+        return await _context.Habits
+            .ToListAsync();
+    }
 }

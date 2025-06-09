@@ -66,4 +66,13 @@ public class HabitRecordRepository : IHabitRecordRepository
         _context.HabitRecords.Remove(record);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<IEnumerable<HabitRecord>> GetAllByHabitIdOrderedDescAsync(Guid habitId)
+    {
+        return await _context.HabitRecords
+            .Where(r => r.HabitId == habitId)
+            .OrderByDescending(r => r.Date)
+            .ToListAsync();
+    }
+
 }

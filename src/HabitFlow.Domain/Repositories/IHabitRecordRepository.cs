@@ -12,4 +12,6 @@ public interface IHabitRecordRepository
     Task UpdateAsync(HabitRecord record);
     Task<bool> ExistsAsync(Guid habitId, DateTime date);
     Task DeleteAsync(HabitRecord record);
+    Task<IEnumerable<HabitRecord>> GetAllByHabitIdOrderedDescAsync(Guid habitId);
+
 }

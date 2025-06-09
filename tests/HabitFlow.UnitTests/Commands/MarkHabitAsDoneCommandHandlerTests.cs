@@ -5,6 +5,7 @@ using HabitFlow.Application.Features.HabitRecords.Commands.MarkHabitAsDone.Dtos;
 using HabitFlow.Domain.Entities;
 using HabitFlow.Domain.Enums;
 using HabitFlow.Domain.Repositories;
+using MediatR;
 using Moq;
 
 namespace HabitFlow.UnitTests.Commands;
@@ -14,6 +15,7 @@ public class MarkHabitAsDoneCommandHandlerTests
     private readonly Mock<IHabitRepository> _habitRepositoryMock;
     private readonly Mock<IHabitRecordRepository> _habitRecordRepositoryMock;
     private readonly Mock<IMapper> _mapperMock;
+    private readonly Mock<IMediator> _mediatorMock;
     private readonly MarkHabitAsDoneCommandHandler _handler;
 
     public MarkHabitAsDoneCommandHandlerTests()
@@ -21,10 +23,12 @@ public class MarkHabitAsDoneCommandHandlerTests
         _habitRepositoryMock = new Mock<IHabitRepository>();
         _habitRecordRepositoryMock = new Mock<IHabitRecordRepository>();
         _mapperMock = new Mock<IMapper>();
+        _mediatorMock = new Mock<IMediator>();
         _handler = new MarkHabitAsDoneCommandHandler(
             _habitRepositoryMock.Object,
             _habitRecordRepositoryMock.Object,
-            _mapperMock.Object);
+            _mapperMock.Object,
+            _mediatorMock.Object);
     }
 
     [Fact]

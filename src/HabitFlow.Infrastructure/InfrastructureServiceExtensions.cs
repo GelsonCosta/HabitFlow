@@ -28,6 +28,9 @@ public static class InfrastructureServiceExtensions
         services.AddScoped<IHabitRepository, HabitRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IHabitRecordRepository, HabitRecordRepository>();
+        services.AddScoped<INotificationRepository, NotificationRepository>();
+        services.AddScoped<INotificationService, NotificationService>();
+        services.AddHostedService<DailyReminderService>();
         // Configuração JWT
         services.Configure<JwtSettings>(configuration.GetSection("Jwt"));
         return services;

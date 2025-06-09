@@ -15,6 +15,7 @@ public class ApplicationDbContext : DbContext
         public DbSet<Habit> Habits { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<HabitRecord> HabitRecords { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);

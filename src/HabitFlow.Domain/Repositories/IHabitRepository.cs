@@ -12,4 +12,5 @@ public interface IHabitRepository
     Task DeleteAsync(Habit habit);
     Task<bool> ExistsAsync(Guid id);
     Task<bool> AnyByCategoryIdAsync(Guid categoryId);
+    Task<IEnumerable<Habit>> GetHabitsAsync();
 }
